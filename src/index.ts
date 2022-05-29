@@ -28,9 +28,9 @@ app.get("/:id", (req: express.Request, res: express.Response, next) => {
         .resize(size, size)
         .jpeg({quality})
         .toBuffer()
-        .then(data => {
-            res.setHeader("Content-Length", data.length);
-            res.end(data);
+        .then(img => {
+            res.setHeader("Content-Length", img.length);
+            res.end(img);
         })
         .catch(err => next(err));
 });
